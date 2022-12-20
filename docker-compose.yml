@@ -1,0 +1,20 @@
+version: "3.9"
+
+# one or mor services 
+services:
+  # name of the service
+  app:
+    build:
+      #Either a path to a directory containing a Dockerfile, or a url to a git repository.
+      context: .
+      args:
+        - DEV=true
+    # map the app directory from local to container
+    ports:
+      - "8000:8000"
+    # map the app directory from local to container
+    volumes:
+      - ./app:/app
+    # command to run the service
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"      
