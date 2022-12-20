@@ -13,8 +13,8 @@ jobs:
         # officially provided action in docker repo
         uses: docker/login-action@v1
         with: 
-          username: ${{ secets.DOCKERHUB_USER }}
-          password: ${{ secets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       # checkout the code for the job to run
       # we need to run linting on the code, so checkout the code
       - name: Checkout
